@@ -1,40 +1,48 @@
 
+def total_chocolates(child_ids, chocolates):
+    """Calculate the total number of chocolates received by all children."""
+    return sum(chocolates)
 
-def reward(childrensIDs, chocolates, childID, extra_chocolates ):    
+def reward_extra_chocolates(child_ids, chocolates, child_id, extra_chocolates):
+    """Reward a child with extra chocolates for good conduct."""
+    # Validate extra chocolates
+    if extra_chocolates < 1:
+        return "Extra chocolates is less than 1"
+    
+    # Validate child_id
+    if child_id not in child_ids:
+        return "Child is invalid"
+    
+    # Add extra chocolates
+    index = child_ids.index(child_id)
+    chocolates[index] += extra_chocolates
+    return chocolates
 
+# Input: child IDs and their chocolates
+num_children = int(input("Enter the number of children: "))
+child_ids = []
+chocolates = []
 
-    #find the index of the child exists in the list
-    if childID not in childrensIDs:
-        print("Error: child is invalid")
-        return 1
+print("Enter the child IDs and chocolates:")
+for _ in range(num_children):
+    child_id = int(input("Child ID: "))
+    num_chocolates = int(input(f"Number of chocolates for child {child_id}: "))
+    child_ids.append(child_id)
+    chocolates.append(num_chocolates)
 
-    # find the index of the child in the list
-    child_index=childrensIDs.index(childID)
+child_ids = tuple(child_ids)
 
-    # Add extra chocolates to child current chocolates
-    chocolates[child_index] += extra_chocolates
+# 1. Calculate total chocolates
+print("\nCalculating total chocolates...")
+print("Total chocolates received by all children:", total_chocolates(child_ids, chocolates))
 
-    # Calculate the total chocolates received by all childern
-    total_chocolates = sum(chocolates)
+# 2. Reward extra chocolates
+print("\nRewarding extra chocolates...")
+child_id = int(input("Enter the child ID to reward extra chocolates: "))
+extra_chocolates = int(input(f"Enter the number of extra chocolates for child {child_id}: "))
 
-    #display the total chocolates recieved by all children
-    print(f"\nUpdated list of chocolates: {chocolates}")
-    print(f"\nTotal chocolates received by all children: {total_chocolates}")
-
-
-def main():
-    print("Distribute chocolates!!!")
-
-    # Get children IDs 
-    childrenIDs=[]
-    for i in range(5):
-        childID = int(input(f"Enter the id of child {i+1}: "))
-        childrenIDs.append(childID)
-
-    #Get chocolates for every child
-    chocolates = []
-    for i in range(5):
-        chocolatesCount = int(input(f"Enter the chocolates given to child {childrenIDs[i]}: "))
-        chocolates.append(chocolatesCount)
-
-
+result = reward_extra_chocolates(child_ids, chocolates, child_id, extra_chocolates)
+if isinstance(result, list):
+    print("Updated chocolates list:", result)
+else:
+    print(result)
