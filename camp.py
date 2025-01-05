@@ -22,3 +22,19 @@ def reward(childrensIDs, chocolates, childID, extra_chocolates ):
     print(f"\nTotal chocolates received by all children: {total_chocolates}")
 
 
+def main():
+    print("Distribute chocolates!!!")
+
+    # Get children IDs 
+    childrenIDs=[]
+    for i in range(5):
+        childID = int(input(f"Enter the id of child {i+1}: "))
+        childrenIDs.append(childID)
+
+    #Get chocolates for every child
+    chocolates = []
+    for i in range(5):
+        chocolatesCount = int(input(f"Enter the chocolates given to child {childrenIDs[i]}: "))
+        chocolates.append(chocolatesCount)
+
+
