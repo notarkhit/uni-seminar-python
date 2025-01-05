@@ -1,5 +1,5 @@
 
-def total_chocolates(child_ids, chocolates):
+def total_chocolates(chocolates):
     """Calculate the total number of chocolates received by all children."""
     return sum(chocolates)
 
