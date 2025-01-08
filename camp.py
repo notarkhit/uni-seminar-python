@@ -34,7 +34,7 @@ child_ids = tuple(child_ids)
 
 # 1. Calculate total chocolates
 print("\nCalculating total chocolates...")
-print("Total chocolates received by all children:", total_chocolates(child_ids))
+print("Total chocolates received by all children:", total_chocolates(chocolates))
 
 # 2. Reward extra chocolates
 print("\nRewarding extra chocolates...")
