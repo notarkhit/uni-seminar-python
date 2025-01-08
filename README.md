@@ -16,4 +16,6 @@ python program for university seminar.
 >      for the child must be added to his/her existing number of chocolates and display the list containing the
 >      total number of chololates recieved by a child.
 
+> Working: fixed
+
 [@notarkhit](https://github.com/notarkhit/)
